@@ -7,8 +7,20 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <WebKit/WebKit.h>
+
+#define PandoraURL @"http://www.pandora.com"
 
 @interface PMAppDelegate : NSObject <NSApplicationDelegate>
+{
+  IBOutlet id pandoraView;
+}
+
+- (IBAction)playMenu:(id)sender;
+- (IBAction)nextMenu:(id)sender;
+- (IBAction)likeMenu:(id)sender;
+- (IBAction)dislikeMenu:(id)sender;
+- (BOOL)simulateClick: (int)keyCode withModifiers:(int)modifiers;
 
 @property (assign) IBOutlet NSWindow *window;
 
