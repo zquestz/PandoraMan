@@ -14,9 +14,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+  [pandoraView setHostWindow:_window];
   [pandoraView setPolicyDelegate:self];
   [pandoraView setUIDelegate:self];
   [pandoraView setFrameLoadDelegate:self];
+  [pandoraView setGroupName:@"PandoraMan"];
   [[pandoraView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:PandoraURL]]];
 }
 
@@ -29,8 +31,9 @@
 
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame
 {
-  if (![title isEqual:@"XD Proxy"]) {
-    [_window setTitle:title];
+  // Report feedback only for the main frame.
+  if (frame == [sender mainFrame]){
+    [[sender window] setTitle:title];
   }
 }
 
