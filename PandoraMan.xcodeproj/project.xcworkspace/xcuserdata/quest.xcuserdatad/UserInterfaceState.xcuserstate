@@ -4676,8 +4676,8 @@
 				</dict>
 			</array>
 		</dict>
-		<integer>371</integer>
 		<integer>29</integer>
+		<integer>371</integer>
 		<string>Web View</string>
 		<dict>
 			<key>$class</key>
@@ -7778,7 +7778,7 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>343763669.93874902</real>
+		<real>343765162.32024199</real>
 		<string>{0, 586}</string>
 		<string>{331, 0}</string>
 		<dict>
@@ -7928,9 +7928,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>343764597.27047598</real>
-		<string>{41, 1824}</string>
-		<string>{611, 0}</string>
+		<real>343765243.53356999</real>
+		<string>{41, 1785}</string>
+		<string>{303, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -8510,8 +8510,8 @@
 				</dict>
 			</array>
 		</dict>
-		<integer>371</integer>
 		<integer>29</integer>
+		<integer>371</integer>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -10619,7 +10619,7 @@
 				<integer>846</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>343764985.83278501</real>
+			<real>343765444.13795698</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -10630,7 +10630,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 10:16 AM</string>
+		<string>Today at 10:24 AM</string>
 		<integer>106</integer>
 		<dict>
 			<key>$class</key>

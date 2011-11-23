@@ -14,7 +14,6 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-  [pandoraView setHostWindow:_window];
   [pandoraView setPolicyDelegate:self];
   [pandoraView setUIDelegate:self];
   [pandoraView setFrameLoadDelegate:self];
