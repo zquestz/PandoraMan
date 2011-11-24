@@ -25,6 +25,7 @@
   [[pandoraView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:PandoraURL]]];
 }
 
+// If this gets called from our main view, load the url there, otherwise pop in new window.
 - (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener
 {
   if( [sender isEqual:pandoraView] ) {
@@ -37,6 +38,7 @@
   }
 }
 
+// All new window actions load in the browser.
 - (void)webView:(WebView *)sender decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id<WebPolicyDecisionListener>)listener
 {
   [[NSWorkspace sharedWorkspace] openURL:[request URL]];
@@ -52,6 +54,9 @@
   }
 }
 
+// Required so that Javascript window.open calls work. We create a new
+// WebView that will call decidePolicyForNavigation to pop up the window.
+// Thanks to PandoraBoy for providing some assistance in this area.
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
 {   
   WebView *newWebView = [[[WebView alloc] init] autorelease];

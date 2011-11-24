@@ -7730,10 +7730,10 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>343792355.45290601</real>
-		<string>{544, 1803}</string>
-		<string>{1881, 288}</string>
-		<string>-webView:createWebViewWithRequest:</string>
+		<real>343793003.12884098</real>
+		<string>{23, 1994}</string>
+		<string>{1453, 0}</string>
+		<string>@implementation PMAppDelegate</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -11151,9 +11151,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>343792355.44844502</real>
-		<string>{544, 1803}</string>
-		<string>{1881, 288}</string>
+		<real>343793003.12667799</real>
+		<string>{23, 1994}</string>
+		<string>{1453, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
