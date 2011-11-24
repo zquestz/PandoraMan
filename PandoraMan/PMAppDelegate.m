@@ -14,7 +14,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-  //[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObject: [NSNumber numberWithBool:YES] forKey:@"WebKitDeveloperExtras"]];
+  [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObject: [NSNumber numberWithBool:YES] forKey:@"WebKitDeveloperExtras"]];
   [pandoraView setHostWindow:_window];
   [pandoraView setPolicyDelegate:self];
   [pandoraView setUIDelegate:self];
@@ -54,12 +54,11 @@
   }
 }
 
-// Required so that Javascript window.open calls work. We create a new
-// WebView that will call decidePolicyForNavigation to pop up the window.
+// Required so that javascript window.open calls work.
 // Thanks to PandoraBoy for providing some assistance in this area.
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
 {   
-  WebView *newWebView = [[[WebView alloc] init] autorelease];
+  WebView *newWebView = [[WebView alloc] init];
   [newWebView setUIDelegate:self];
   [newWebView setPolicyDelegate:self];
   [self addOtherWebView:newWebView];

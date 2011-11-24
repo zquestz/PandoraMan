@@ -1,1 +1,8 @@
-build/*
+build/ 
+*.pyc 
+*~.nib/ 
+*.pbxuser 
+*.perspective 
+*.perspectivev3 
+*.xcworkspace/ 
+xcuserdata/ 

@@ -17,12 +17,16 @@
   NSMutableSet *otherWebViews;
 }
 
+// Actions for menu items.
 - (IBAction)playMenu:(id)sender;
 - (IBAction)nextMenu:(id)sender;
 - (IBAction)likeMenu:(id)sender;
 - (IBAction)dislikeMenu:(id)sender;
+
+// Simulate keyboard events.
 - (BOOL)simulateClick: (int)keyCode withModifiers:(int)modifiers;
 
+// Manage additional webviews created by window.open
 - (void)addOtherWebView:(WebView *)theView;
 - (void)removeOtherWebView:(WebView *)theView;
 
