@@ -25,9 +25,22 @@
   [[pandoraView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:PandoraURL]]];
 }
 
+- (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener
+{
+  if( [sender isEqual:pandoraView] ) {
+    [listener use];
+  }
+  else {
+    [[NSWorkspace sharedWorkspace] openURL:[request URL]];
+    [self removeOtherWebView:sender];
+    [listener ignore];
+  }
+}
+
 - (void)webView:(WebView *)sender decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id<WebPolicyDecisionListener>)listener
 {
   [[NSWorkspace sharedWorkspace] openURL:[request URL]];
+  [self removeOtherWebView:sender];
   [listener ignore];
 }
 
@@ -37,6 +50,28 @@
   if (frame == [sender mainFrame]){
     [[sender window] setTitle:title];
   }
+}
+
+- (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
+{   
+  WebView *newWebView = [[[WebView alloc] init] autorelease];
+  [newWebView setUIDelegate:self];
+  [newWebView setPolicyDelegate:self];
+  [self addOtherWebView:newWebView];
+  return newWebView;
+}
+
+- (void)addOtherWebView:(WebView *)theView
+{
+  if (!otherWebViews) {
+    otherWebViews = [[NSMutableSet alloc] initWithCapacity:1];
+  }
+  [otherWebViews addObject:theView];
+}
+
+- (void)removeOtherWebView:(WebView *)theView
+{
+  [otherWebViews removeObject:theView];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication 

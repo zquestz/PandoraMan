@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "PandoraMan/PMAppDelegate.m"
-         timestampString = "343789838.048144"
+         timestampString = "343792277.527388"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "36"
-         endingLineNumber = "36"
+         startingLineNumber = "58"
+         endingLineNumber = "58"
          landmarkName = "-webView:didReceiveTitle:forFrame:"
          landmarkType = "5">
       </FileBreakpoint>
