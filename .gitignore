@@ -4,5 +4,5 @@ build/
 *.pbxuser 
 *.perspective 
 *.perspectivev3 
-*.xcworkspace/ 
-xcuserdata/ 
+*.xcworkspace/
+project.xcworkspace/xcuserdata/
