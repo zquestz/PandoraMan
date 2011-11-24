@@ -23,8 +23,7 @@
 
 - (void)webView:(WebView *)sender decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id<WebPolicyDecisionListener>)listener
 {
-  NSURL *url = [actionInformation objectForKey:WebActionOriginalURLKey];
-  [[NSWorkspace sharedWorkspace] openURL:url];
+  [[NSWorkspace sharedWorkspace] openURL:[request URL]];
   [listener ignore];
 }
 
