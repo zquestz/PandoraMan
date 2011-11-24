@@ -14,10 +14,14 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+  //[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObject: [NSNumber numberWithBool:YES] forKey:@"WebKitDeveloperExtras"]];
+  [pandoraView setHostWindow:_window];
   [pandoraView setPolicyDelegate:self];
   [pandoraView setUIDelegate:self];
   [pandoraView setFrameLoadDelegate:self];
   [pandoraView setGroupName:@"PandoraMan"];
+  [pandoraView setShouldUpdateWhileOffscreen:YES];
+  [[pandoraView preferences] setJavaScriptCanOpenWindowsAutomatically:YES];
   [[pandoraView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:PandoraURL]]];
 }
 

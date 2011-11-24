@@ -603,7 +603,10 @@
 							<string key="GroupName"/>
 							<object class="WebPreferences" key="Preferences">
 								<string key="Identifier">pandoraWebView</string>
-								<dictionary class="NSMutableDictionary" key="Values"/>
+								<object class="NSMutableDictionary" key="Values">
+									<string key="NS.key.0">pandoraWebViewWebKitJavaScriptCanOpenWindowsAutomatically</string>
+									<boolean value="YES" key="NS.object.0"/>
+								</object>
 							</object>
 							<bool key="UseBackForwardList">YES</bool>
 							<bool key="AllowsUndo">YES</bool>
