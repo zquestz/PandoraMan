@@ -14,7 +14,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-  [[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObject: [NSNumber numberWithBool:YES] forKey:@"WebKitDeveloperExtras"]];
+  //[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObject: [NSNumber numberWithBool:YES] forKey:@"WebKitDeveloperExtras"]];
   [pandoraView setHostWindow:_window];
   [pandoraView setPolicyDelegate:self];
   [pandoraView setUIDelegate:self];
@@ -22,6 +22,8 @@
   [pandoraView setGroupName:@"PandoraMan"];
   [pandoraView setShouldUpdateWhileOffscreen:YES];
   [[pandoraView preferences] setJavaScriptCanOpenWindowsAutomatically:YES];
+  [[pandoraView preferences] setUsesPageCache:YES];
+  [[pandoraView preferences] setCacheModel:WebCacheModelPrimaryWebBrowser];
   [[pandoraView mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:PandoraURL]]];
 }
 
@@ -59,8 +61,11 @@
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
 {   
   WebView *newWebView = [[WebView alloc] init];
+  [newWebView setHostWindow:_window];
   [newWebView setUIDelegate:self];
   [newWebView setPolicyDelegate:self];
+  [newWebView setFrameLoadDelegate:self];
+  [newWebView setGroupName:@"PandoraMan"];
   [self addOtherWebView:newWebView];
   return newWebView;
 }
