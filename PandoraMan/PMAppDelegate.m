@@ -10,12 +10,10 @@
 
 @implementation PMAppDelegate
 
-@synthesize window = _window;
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
   //[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObject: [NSNumber numberWithBool:YES] forKey:@"WebKitDeveloperExtras"]];
-  [pandoraView setHostWindow:_window];
+  [pandoraView setHostWindow:pandoraWindow];
   [pandoraView setPolicyDelegate:self];
   [pandoraView setUIDelegate:self];
   [pandoraView setFrameLoadDelegate:self];
@@ -60,8 +58,8 @@
 // Thanks to PandoraBoy for providing some assistance in this area.
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
 {   
-  WebView *newWebView = [[WebView alloc] init];
-  [newWebView setHostWindow:_window];
+  WebView *newWebView = [[[WebView alloc] init] autorelease];
+  [newWebView setHostWindow:pandoraWindow];
   [newWebView setUIDelegate:self];
   [newWebView setPolicyDelegate:self];
   [newWebView setFrameLoadDelegate:self];

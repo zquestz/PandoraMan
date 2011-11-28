@@ -14,6 +14,7 @@
 @interface PMAppDelegate : NSObject <NSApplicationDelegate>
 {
   IBOutlet id pandoraView;
+  IBOutlet id pandoraWindow;
   NSMutableSet *otherWebViews;
 }
 
@@ -29,7 +30,5 @@
 // Manage additional webviews created by window.open
 - (void)addOtherWebView:(WebView *)theView;
 - (void)removeOtherWebView:(WebView *)theView;
-
-@property (assign) IBOutlet NSWindow *window;
 
 @end
